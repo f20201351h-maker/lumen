@@ -10,7 +10,9 @@ The repository is a hackathon-ready functional prototype built with Next.js, EPU
 - Navigate between EPUB pages and track progress
 - Capture book metadata, chapter, EPUB CFI, visible text, nearby text, and selected text
 - Ask contextual questions through a floating CopilotKit companion
-- Dictate a question with the browser speech-recognition API
+- Turn on hands-free mode once, then ask questions or control the reader continuously by voice
+- Say “next page” or “previous page” to navigate without touching the reader
+- Open the companion and submit spoken requests automatically, including scene-illustration requests
 - Generate passage-grounded illustrations
 - Find real historical reference images through Wikimedia Commons
 - Switch text and image providers independently between OpenAI and OpenRouter
@@ -80,6 +82,7 @@ The EPUB check opens the included public-domain fixture in a local Chrome or Bra
 ## Known limits
 
 - Browser speech recognition is best supported by Chromium browsers.
+- Browsers require one initial interaction to grant microphone permission; after that, hands-free mode automatically resumes listening until the reader says “stop listening” or selects the microphone again.
 - EPUB presentation varies because publishers ship their own styles and markup.
 - The generated OpenAI Platform key currently reaches the API, but its selected project has no remaining credits. Configure the supplied OpenRouter credit or add OpenAI credits for live generation.
 - Historical references use the first suitable Wikimedia Commons image search result. The card links to its source page for date, creator, and license details.

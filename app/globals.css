@@ -238,7 +238,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .upload-button:active, .voice-orb:active { transform: translateY(1px); }
 .voice-orb--listening { background: var(--wine); border-color: #be756a; animation: listenPulse 1.4s infinite; }
 @keyframes listenPulse { 50% { box-shadow: 0 0 0 8px rgba(126,48,40,.18); } }
-.speech-note { position: fixed; right: 26px; bottom: 86px; z-index: 70; width: 280px; background: var(--paper); border-left: 3px solid var(--wine); padding: 11px 13px; box-shadow: 0 10px 35px rgba(0,0,0,.3); font-size: .83rem; }
+.speech-note { position: fixed; right: 26px; bottom: 86px; z-index: 70; width: min(330px, calc(100vw - 32px)); background: var(--paper); border-left: 3px solid var(--wine); padding: 12px 14px; box-shadow: 0 10px 35px rgba(0,0,0,.3); font-size: .83rem; display: flex; flex-direction: column; gap: 5px; text-align: left; }
+.speech-note strong { display: flex; align-items: center; gap: 7px; color: var(--wine); font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; }
+.speech-note small { color: var(--ink-soft); line-height: 1.35; }
+.speech-note__pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--wine); box-shadow: 0 0 0 0 rgba(126,48,40,.35); animation: voicePulse 1.5s infinite; }
+.speech-note__error { color: #7a2e26; }
+@keyframes voicePulse { 70% { box-shadow: 0 0 0 7px rgba(126,48,40,0); } }
 
 /* CopilotKit becomes part of the reading desk instead of a generic chat widget. */
 .copilotKitPopup, [data-copilotkit-popup] { z-index: 55 !important; }
