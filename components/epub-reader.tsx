@@ -343,7 +343,12 @@ export function EpubReader() {
             <span>{context.title}</span>
             <strong>{context.progress}%</strong>
           </span>
-          <ReaderCompanion context={context} />
+          <ReaderCompanion
+            context={context}
+            canNavigate={hasBook}
+            onNextPage={() => void renditionRef.current?.next()}
+            onPreviousPage={() => void renditionRef.current?.prev()}
+          />
         </div>
         <button onClick={() => void renditionRef.current?.next()} disabled={!hasBook} aria-label="Next page">
           Next <ChevronRight size={19} />
